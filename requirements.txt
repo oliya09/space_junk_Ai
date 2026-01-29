@@ -8,7 +8,7 @@ torch>=2.0.0
 torchvision>=0.15.0
 torchaudio>=2.0.0
 scikit-learn>=1.0.0
-dotenv
+python-dotenv
 
 # Web framework
 streamlit>=1.42.0
