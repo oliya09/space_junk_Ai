@@ -17,7 +17,7 @@ class TLEData:
 class CelesTrakClient:
     """Client for fetching real-time satellite and debris data from CelesTrak."""
     
-    BASE_URL = "https://celestrak.org/NORAD/elements/gp.php?"
+    BASE_URL = "https://celestrak.org/NORAD/elements/gp.php"
     
     def __init__(self):
         """Initialize CelesTrak client."""
@@ -41,7 +41,7 @@ class CelesTrakClient:
             print("🛰️ Fetching active satellites from CelesTrak...")
             
             url = f"{self.BASE_URL}?GROUP=active&FORMAT={format_type}"
-            response = self.session.get(url, timeout=30)
+            response = self.session.get(url, timeout=100)
             response.raise_for_status()
             
             if format_type.lower() == "json":
@@ -89,7 +89,7 @@ class CelesTrakClient:
             print("🌌 Fetching Starlink satellites from CelesTrak...")
             
             url = f"{self.BASE_URL}?GROUP=starlink&FORMAT=json"
-            response = self.session.get(url, timeout=30)
+            response = self.session.get(url, timeout=90)
             response.raise_for_status()
             
             data = response.json()
@@ -106,7 +106,7 @@ class CelesTrakClient:
             print("🚀 Fetching recent launches from CelesTrak...")
             
             url = f"{self.BASE_URL}?GROUP=last-30-days&FORMAT=json"
-            response = self.session.get(url, timeout=30)
+            response = self.session.get(url, timeout=90)
             response.raise_for_status()
             
             data = response.json()
