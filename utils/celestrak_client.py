@@ -17,7 +17,7 @@ class TLEData:
 class CelesTrakClient:
     """Client for fetching real-time satellite and debris data from CelesTrak."""
     
-    BASE_URL = "https://celestrak.org/NORAD/elements/gp.php"
+    BASE_URL = "https://celestrak.org/NORAD/elements/gp.php?"
     
     def __init__(self):
         """Initialize CelesTrak client."""
